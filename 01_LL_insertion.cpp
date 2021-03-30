@@ -45,5 +45,5 @@ int main()
         insert(x);
     }
     printLL();
-    return 0;
+    return 0 ;
 }
