@@ -1,87 +1,47 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
-#define n 100 // predefining the value of n
-
-class stack{
-    //private variables
-    int*arr; //dynamic array
-    int top; //pointer to top element
-    public:
-    stack(){
-        arr=new int[n];//allocating memory to array
-        top=-1;//
-    }
-    //operations in stack
-    void push(int x)
+void insert(std::stack<int>&s,int temp)
+{
+    if (s.size()==0 || s.top()<=temp)
     {
-        if (top==n-1)
-        {
-            cout<<"stack overflow"<<endl;
-            return;
-        }
-        top++;
-        arr[top]=x;
+        s.push(temp);
+        return;
     }
-    void pop()
-    {
-        if (top==-1)
-        {
-            cout<<"No element to pop"<<endl;
-            return;
-        }
-        top--;
-    }
-    int Top()
-    {
-        if(top==-1)
-        {
-            cout<<"No element in stack"<<endl;
-            return -1;
-        }
-        return arr[top];
-    }
-    bool empty(){
-        return top==-1;
-    }
-};
+    int val=s.top();
+    s.pop();
+    insert(s,temp);
+    s.push(val);
+    return;
+}
 
-// void insert(stack<int>&s,int temp)
-// {
-//     if (s.size()==0 || s[s.size()-1]<=temp)
-//     {
-//         s.push(temp);
-//         return;
-//     }
-//     int val=s[s.top()-1];
-//     s.pop();
-//     insert(s,temp);
-//     s.push(val);
-//     return;
-// }
+void sort(std::stack<int>&s)
+{
+    if (s.size()==1) return;
+    int temp=s.top();
+    s.pop();
+    sort(s);
+    insert(s,temp);
+    return;
+}
 
-// void sort(stack<int>&s)
-// {
-//     if (s.size()==1) return;
-//     int temp=s[s.top()-1];
-//     s.pop();
-//     sort(s);
-//     insert(s,temp);
-//     return;
-// }
+void print(std::stack<int> stk) {
+    while(!stk.empty()) {
+        cout<<stk.top() <<" | ";
+        stk.pop();
+    }
+    cout<<endl;
+}
+
 int main(){
-    stack st;
+    std::stack<int> st;
     st.push(1);
     st.push(8);
     st.push(32);
     st.push(23);
-    cout<<st.Top()<<endl;
-    st.pop();
-    cout<<st.Top()<<endl;
-    st.pop();
-    st.pop();
-    st.pop();
-    st.pop();
-    cout<<st.empty()<<endl;
+    print(st);
+    sort(st);
+    print(st);
     return 0;
 }
