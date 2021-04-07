@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 vector <string> v;
+//how to remove duplicates from vector using map
 void solve(string ip, string op)
 {
     if (ip.length() == 0)
