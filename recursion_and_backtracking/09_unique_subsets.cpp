@@ -1,12 +1,12 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
-
+vector <string> v;
 void solve(string ip, string op)
 {
     if (ip.length() == 0)
     {
-        cout << op << " ";
+        v.push_back(op);
+        //do something;
         return;
     }
     string op1 = op;
@@ -18,9 +18,5 @@ void solve(string ip, string op)
 }
 int main()
 {
-    string ip;
-    cin >> ip;
-    string op = "";
-    solve(ip, op);
     return 0;
 }
