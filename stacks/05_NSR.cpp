@@ -1,22 +1,21 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 #include <stack>
+#include <algorithm>
 using namespace std;
 vector<int> v;
 stack<int> s;
-
-void nextgreater(int arr[], int size)
+void nextsmaller(int arr[], int size)
 {
     for (int i = size - 1; i >= 0; i--)
     {
         if (s.size() == 0)
             v.push_back(-1);
-        else if (s.size() > 0 && s.top() > arr[i])
+        else if (s.size() > 0 && s.top() < arr[i])
             v.push_back(s.top());
-        else if (s.size() > 0 && s.top() <= arr[i])
+        else if (s.size() > 0 && s.top() >= arr[i])
         {
-            while (s.size() > 0 && s.top() < arr[i])
+            while (s.size() > 0 && s.top() > arr[i])
                 s.pop();
             if (s.size() == 0)
                 v.push_back(-1);
@@ -26,15 +25,13 @@ void nextgreater(int arr[], int size)
         s.push(arr[i]);
     }
 }
-
 int main()
 {
-    int arr[100] = {1, 3, 2, 4};
-    nextgreater(arr, 4);
+    int arr[100] = {4, 5, 2, 10, 8};
+    int size = 5;
+    nextsmaller(arr, size);
     reverse(v.begin(), v.end());
-    for (int i = 0; i < 4; i++)
-    {
-        cout << v[i]<<" | ";
-    }
+    for (int i = 0; i < size; i++)
+        cout << v[i] << " | ";
     return 0;
 }

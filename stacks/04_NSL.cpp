@@ -12,9 +12,9 @@ void nextsmaller(int arr[],int size)
             v.push_back(-1);
         else if(s.size()>0 && s.top()<arr[i])
             v.push_back(s.top());
-        else if(s.size()>0 && s.top()>arr[i])
+        else if(s.size()>0 && s.top()>=arr[i])
         {
-            while (s.size()>0 && s.top()>arr[i])
+            while (s.size()>0 && s.top()>=arr[i])
                 s.pop();
             if (s.size()==0)
                 v.push_back(-1);
