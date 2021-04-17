@@ -92,82 +92,33 @@ int MAH(vector <int>&arr,int n)
     maxi=largest(are,n);
     return maxi;
 }
-
 int main()
 {
-    vector<vector<int>> arr;
-    arr = {{0, 1, 1, 0}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 0, 0}};
-    int n = 4, m = 4;
-    vector<int> v;
-    for (int j = 0; j < m; j++)
-        v.push_back(arr[0][j]);
-    int mx = MAH(v, m);
-    cout << endl
-         << mx << " mx intially " << endl;
-    for (int i = 1; i < n; i++)
+    vector<int>req={2,3,3,2};
+    cout<<MAH(req,4);
+    vector<vector<int>> v;
+    cout<<"code e";
+    for (int i=0;i<4;i++)
     {
-        for (int j = 0; j < m; j++)
+        vector<int>temp;
+        for(int j=0;j<4;j++)
         {
-            if (arr[i][j] == 0)
-                v[j] = 0;
-            else
-                v[j] = v[j] + arr[i][j];
+            int h;
+            cin>>h;
+            temp.push_back(h);
         }
-        cout << endl
-             << "******* STEP ********    " << i << endl;
-        for (int k = 0; k < m; k++)
-        {
-            cout << v[k] << " ";
-        }
-        mx = max(mx, MAH(v, m+1));
-        //check in for mistakes and debugging
-
-        //vector at this point
-        cout<<"mah is "<<MAH(v,m);
-        cout << endl
-             << mx << " mx intermin at i equal to ->  " << i << "   and the mah here is " << MAH(v, m) << endl;
+        v.push_back(temp);
     }
-    cout << endl
-         << mx << "  mx when code ended " << endl;
-
-
-    cout<<endl<<"if vector is  | 2,3,3,3";
-    vector <int> vv;
-    vv={2,3,3,3};
-    int size=v.size();
-    int jj=MAH(vv,size);
-    cout <<endl<<jj<<endl;
+    cout<<"code en";
+    for (int i=0;i<4;i++)
+    {
+        vector<int>temp1;
+        for(int j=0;j<4;j++)
+        {
+            temp1[j]=v[i][j];
+        }
+        cout<<MAH(temp1,4);
+    }
+    cout<<"code ends";
     return 0;
 }
-
-// int main() main fuction which tried initially
-// {
-//     int arr[10][10]={{1,1,1,1},{1,1,1,1},{1,1,1,1},{1,1,1,1}};
-//     int n=4,m=4;
-//     vector <int> v;
-//     for(int j=0;j<m;j++)
-//         v.push_back(arr[0][j]);
-//     int mx=MAH(v,m);
-//     cout<<endl<<mx<<" mx intially "<<endl;
-//     for(int i=1;i<n;i++)
-//     {
-//         for(int j=0;j<m;j++)
-//         {
-//             if (arr[i][j]==0)
-//                 v[j]=0;
-//             else
-//                 v[j]=v[j]+arr[i][j];
-//         }
-//         mx=max(mx,MAH(v,m));
-//         //checkin for mistakes and debugging
-//         cout<<endl<<"******* STEP ********    "<<i<<endl;
-//         //vector at this point
-//         for(int k=0;k<m;k++)
-//         {
-//             cout<<v[k]<<" ";
-//         }
-//         cout<<endl<<mx<<" mx intermin at i equal to ->  "<<i<<"   and the mah here is "<<MAH(v,m)<<endl;
-//     }
-//     cout<<endl<<mx<<"  mx when code ended "<<endl;
-//     return 0;
-// }
