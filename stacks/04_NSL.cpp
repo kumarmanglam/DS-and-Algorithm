@@ -24,8 +24,8 @@ void nextsmaller(int arr[],int size)
     }
 }
 int main(){
-    int arr[100]={4,5,2,10,8};
-    int size=5;
+    int arr[100]={6,2,5,4,5,1,6};
+    int size=7;
     nextsmaller(arr,size);
     for(int i=0;i<size;i++)
         cout<<v[i]<<"|";

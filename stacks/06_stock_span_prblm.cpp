@@ -1,3 +1,4 @@
+//consecutive or smaller before it
 #include <iostream>
 #include <vector>
 #include <stack>

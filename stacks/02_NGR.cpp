@@ -29,12 +29,10 @@ void nextgreater(int arr[], int size)
 
 int main()
 {
-    int arr[100] = {1, 3, 2, 4};
-    nextgreater(arr, 4);
+    int arr[100] = {6,2,5,4,5,1,6};
+    nextgreater(arr, 7);
     reverse(v.begin(), v.end());
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 7; i++)
         cout << v[i]<<" | ";
-    }
     return 0;
 }
