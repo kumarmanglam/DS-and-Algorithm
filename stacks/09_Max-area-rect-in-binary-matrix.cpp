@@ -1,3 +1,8 @@
+//this question is solved yet
+// I cannot deal with 2d vectors properly. 
+// there may some other flow alse in the code 
+//I cannot extract particular vector in 1d from 2d array and apply MAH individually on that.
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
