@@ -31,5 +31,5 @@ int getmin()
 }
 int main()
 {
-    //implementat the above code here..
+    //implement the above code here..
 }
