@@ -34,11 +34,11 @@ void first_negative(int arr[],int size,int k)
 }
 int main()
 {
-    int arr[]={12,-1,-7,8,-1};
+    int arr[]={12,-1,-7,8,-15,30,16,28};
     int n=sizeof(arr)/sizeof(arr[0]);
     int k=3;
     first_negative(arr,n,k);
-    for(int i=0;i<3;i++)
+    for(int i=0;i<6;i++)
     {
         cout<<v[i]<<" | ";
     }
