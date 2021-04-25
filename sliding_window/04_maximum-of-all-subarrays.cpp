@@ -35,7 +35,7 @@ vector <int> maximumofeach(vector<int>&arr,int k)
 }
 int main()
 {
-    vector<int>arr={13,3,4,5,34,9,3,4,5,4,3,2,2};
+    vector<int>arr=      ;
     vector<int>v;
     v=maximumofeach(arr,3);
     int n=arr.size();

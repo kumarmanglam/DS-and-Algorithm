@@ -1,30 +1,32 @@
 #include <iostream>
-#include <deque>
+#include <climits>
 #include <vector>
 using namespace std;
-vector<int> maxSlidingWindow(vector<int>& nums, int k) 
+int solve(vector<int> &A, const int &k) {
+	int n = A.size();
+	int i = 0, j = 0, sum = 0;
+	int mx = INT_MIN;
+	while (j < n) {
+		sum += A[j];
+		if (sum < k) {
+			j++;
+		} else if (sum == k) {
+			mx = max(mx, j - i + 1);
+			j++;
+		} else if (sum > k) {
+			while (sum > k) {
+				sum = sum - A[i];
+				i++;
+			}
+			j++;
+		}
+	}
+	return mx;
+}
+int main()
 {
-        vector<int>v;
-        deque<int>q;
-        int i=0,j=0;
-        int n=nums.size();
-        while(j<n)
-        {
-            while(q.size()>0 && q.back()<nums[j])
-                q.pop_back();
-            q.push_back(nums[j]);
-            
-            if(j-i+1<k)
-                j++;
-            else
-            {
-                v.push_back(q.front());
-                if(nums[i]==q.front())
-                    q.pop_front();
-                i++;
-                j++;
-            }
-            
-        }
-        return v;
+	vector<int> A{4, 1, 1, 1, 2, 3, 5};
+	int k = 5;
+	cout << solve(A, k);
+	return 0;
 }
