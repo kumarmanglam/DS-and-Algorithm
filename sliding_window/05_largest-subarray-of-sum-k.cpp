@@ -4,7 +4,7 @@
 #include <climits>
 #include <algorithm>
 using namespace std;
-long largestsize(vector<int> &arr, const int &k)
+long largestsize(vector<int> &arr, const int &k) 
 {
     int mx = INT_MIN;
     int i = 0, j = 0, sum = 0;
