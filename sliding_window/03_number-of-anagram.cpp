@@ -1,10 +1,13 @@
+//this question has some debug
+//to be rectified later 
+
 #include <iostream>
 #include <map>
 #include <string>
 #include <vector>
 using namespace std;
 map<char, int> mp;
-int anagram(string s, int size, int k)
+int anagram(string s,string ss, int size, int k)
 {
     //value of count is equal to number of unique elements in pattern string
     int i = 0, j = 0, count = 2, ans = 0;
@@ -12,7 +15,7 @@ int anagram(string s, int size, int k)
     {
         while ((j - i + 1) < k)
         {
-            if (mp.count(s[j] > 0))
+            if (mp.count(s[j]) > 0)
             {
                 mp[s[j]]--;
             }
@@ -48,7 +51,7 @@ int anagram(string s, int size, int k)
 int main()
 {
     string ptr, ss;
-    ptr = "abbabbaa";
+    ptr = "abbaabbaa";
     ss = "abba";
     int size, sizz;
     size = sizeof(ptr) / sizeof(ptr[0]);
@@ -62,7 +65,7 @@ int main()
         cout << (*j).first << " - " << (*j).second << endl;
     }
     int anss;
-    anss = anagram(ptr, size, sizz);
+    anss = anagram(ptr,ss, size, sizz);
     cout << "the answer is  " << anss << endl;
     return 0;
 }
