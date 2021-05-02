@@ -22,7 +22,7 @@ int main()
 {
     int arr[100]={1,2,3,4,5,6,7,8,9};
     // reverse(arr,5);
-    reverseSE(arr,3,5);
+    reverseSE(arr,0,5);
     printArray(arr,9);
     // cout<<(5-2)/2;
     return 0;
