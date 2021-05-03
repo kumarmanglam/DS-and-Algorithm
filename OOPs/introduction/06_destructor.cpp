@@ -31,6 +31,12 @@ class student{
         age=a.age;
         gender=a.gender;
     }
+
+    //destructor
+    ~student(){
+        cout<<"destructor called"<<endl;
+    }
+
     //print fuction 
     void printInfo(){
         cout<<"Name = ";
@@ -56,6 +62,6 @@ int main(){
     
     //coder made copying constructor like stucdent c object m hame object a ki saari values daalne h 
     student d=a;
+
     return 0;
 }
-

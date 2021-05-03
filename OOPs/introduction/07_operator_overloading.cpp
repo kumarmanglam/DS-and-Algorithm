@@ -1,6 +1,3 @@
-//NOTE
-//constructor by default call ho jata h
-//shallow copy
 #include <iostream>
 using namespace std;
 class student{
@@ -24,13 +21,6 @@ class student{
         cout<<"default constructor"<<endl;
     }
 
-    //copy constructor
-    student (student &a){
-        cout<<"copy constructor"<<endl;
-        name=a.name;
-        age=a.age;
-        gender=a.gender;
-    }
     //print fuction 
     void printInfo(){
         cout<<"Name = ";
@@ -40,22 +30,29 @@ class student{
         cout<<"Gender = ";
         cout<<gender<<endl;
     }
+
+    //operator overloading 
+    bool operator == (student &a){
+        if(name==a.name && age==a.age && gender==a.gender){
+            return true;
+        }
+        return false;
+    }
 };
 
 int main(){
 
     //using parameterised constructor
     student a("urvi",20,1);
-    //a.printInfo();
+    student b("Rahul",22,1);
 
-    //using bydefault no value constructor
-    student b;
 
-    //by default copying constructor gets activated when we haven't made any copying constuctor!!!!
-    student c=a;
-    
-    //coder made copying constructor like stucdent c object m hame object a ki saari values daalne h 
-    student d=a;
+    //using operator overloading 
+    if(b==a){
+        cout<<"same"<<endl;
+    }
+    else{
+        cout<<"not same"<<endl;
+    }
     return 0;
 }
-
