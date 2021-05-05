@@ -3,33 +3,23 @@
 
 #include <iostream>
 using namespace std;
-int stock_brute(int arr[],int n){
-    int ans[100];
-    for(int i=0;i<n;i++){
-        int k=0;
-        for(int j=1;j<n;j++){
-            if(arr[j]>arr[i]){
-                ans[k]=arr[j]-arr[i];
-                k++;
-            }
+int maxprofit(int price[],int n){
+    int profit=0;
+    for(int i=1;i<n;i++){
+        if(price[i]>price[i-1]){
+            profit+=(price[i]-price[i-1]);
         }
-        //maximum in ans array ke index se hame an array ke element result array m daalna h
-        int mx=0;
-        for(int i=0;i<k;i++){
-            mx=max(mx,ans[i]);
-        }
-        cout<<mx<<" ";
     }
-    cout<<endl;
+    return profit;
 }
 
 
 int main(){
-    int arr[]={4,2,2,2,4};
+    int arr[]={4,19,2,82,4};
     int n=sizeof(arr)/sizeof(arr[0]);
-    stock_brute(arr,n);
-
-  return 0;
+    int ans=maxprofit(arr,n);
+    cout<<ans<<endl;
+    return 0;
 }
 
 /**
@@ -75,3 +65,23 @@ public:
     }
 };
 */
+//unsuccessful attempt
+//int stock_brute(int arr[],int n){
+//     int ans[100];
+//     for(int i=0;i<n;i++){
+//         int k=0;
+//         for(int j=1;j<n;j++){
+//             if(arr[j]>arr[i]){
+//                 ans[k]=arr[j]-arr[i];
+//                 k++;
+//             }
+//         }
+//         //maximum in ans array ke index se hame an array ke element result array m daalna h
+//         int mx=0;
+//         for(int i=0;i<k;i++){
+//             mx=max(mx,ans[i]);
+//         }
+//         cout<<mx<<" ";
+//     }
+//     cout<<endl;
+// }
