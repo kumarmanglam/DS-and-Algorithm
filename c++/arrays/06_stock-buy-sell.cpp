@@ -1,3 +1,6 @@
+//this question is not yet completed 
+//to be discussed later
+
 #include <iostream>
 using namespace std;
 int stock_brute(int arr[],int n){
