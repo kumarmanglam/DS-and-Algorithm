@@ -1,7 +1,7 @@
 #include <iostream>
-
+#include <climits>
 using namespace std;
-
+//efficient solution by aditya verma
 int sliding_window(int arr[],int n,int k)
 {
     int sum=0,mx=0,i=0,j=0;
@@ -17,6 +17,18 @@ int sliding_window(int arr[],int n,int k)
             i++;
             j++;
         }
+    }
+    return mx;
+}
+//efficient solution by gfg
+int sliding(int arr[],int n,int k){
+    int cursum=0,mx=INT_MIN;
+    for(int i=0;i<k;i++){
+        cursum+=arr[i];
+    }
+    for(int i=k;i<n;i++){
+        cursum+=(arr[i]-arr[i-k]);
+        mx=max(cursum,mx);
     }
     return mx;
 }
