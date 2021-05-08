@@ -1,19 +1,22 @@
-#include<iostream>
-using namespace std;
+//iterative is definately better than the recursive binary search 
+//coz it doesn't require the extra auxilliary space
+//time complexity is log2(N) when N no of elements are given!!!
 
+#include <iostream>
+using namespace std;
 
 int bSearch(int arr[], int n, int x)
 {
 	int low = 0, high = n - 1;
 
-	while(low <= high)
+	while (low <= high)   
 	{
 		int mid = (low + high) / 2;
 
-		if(arr[mid] == x)
+		if (arr[mid] == x)
 			return mid;
 
-		else if(arr[mid] > x)
+		else if (arr[mid] > x)
 			high = mid - 1;
 
 		else
@@ -23,12 +26,13 @@ int bSearch(int arr[], int n, int x)
 	return -1;
 }
 
-int main() {
-    
-    int arr[] = {10, 20, 30, 40, 50, 60}, n = 6;
+int main()
+{
+
+	int arr[] = {10, 20, 30, 40, 50, 60}, n = 6;
 
 	int x = 20;
-	
-	cout<<bSearch(arr, n, x);
+
+	cout << bSearch(arr, n, x);
 	return 0;
 }
