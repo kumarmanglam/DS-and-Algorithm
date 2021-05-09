@@ -31,6 +31,5 @@ int main(){
     int arr[]={4,5,6,7,8,9,1,2,3};
     int n=sizeof(arr)/sizeof(arr[0]);
     cout<<search_rotated(arr,n,31);
-
-  return 0;
+    return 0;
 }
