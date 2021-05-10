@@ -1,8 +1,14 @@
 #include<utility>
-vector<int> ngr(vector<int> arr){
-    vector<int> v;
-    stack<pair<int,int>> s;
-    for(int i=arr.size()-1;i>=0;i--){
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <algorithm>
+using namespace std;
+
+vector<long> ngr(vector<long> arr){
+    vector<long> v;
+    stack<pair<long,long>> s;
+    for(long i=arr.size()-1;i>=0;i--){
         if(s.size()==0)
         v.push_back(0);
         else if(s.size()>0 && s.top().first>arr[i])
@@ -18,10 +24,10 @@ vector<int> ngr(vector<int> arr){
     reverse(v.begin(),v.end());
     return v;
 }
-vector<int> ngl(vector<int> arr){
-    vector<int> v;
-    stack<pair<int,int>> s;
-    for(int i=0;i<arr.size();i++){
+vector<long> ngl(vector<long> arr){
+    vector<long> v;
+    stack<pair<long,long>> s;
+    for(long i=0;i<arr.size();i++){
         if(s.size()==0)
         v.push_back(0);
         else if(s.size()>0 && s.top().first>arr[i])
@@ -36,10 +42,21 @@ vector<int> ngl(vector<int> arr){
     }
     return v;
 }
-int solve(vector<int> arr) {
-    vector<int> right=ngr(arr);
-    vector<int> left=ngl(arr);
-    for(int i=0;i<arr.size();i++)
+long solve(vector<long> arr) {
+    vector<long> right=ngr(arr);
+    vector<long> left=ngl(arr);
+    for(long i=0;i<arr.size();i++)
         arr[i]=right[i]*left[i];
     return *max_element(arr.begin(),arr.end());
+}
+
+int main(){
+    int n;
+    cin>>n;
+    vector <long> a;
+    for(int i=0;i<n;i++){
+        long x;
+        cin>>x;
+        a.push_back(x);}
+    cout<<solve(a);
 }
