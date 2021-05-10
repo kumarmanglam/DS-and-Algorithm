@@ -21,6 +21,7 @@ void leftrotationByReverse(int arr[],int d,int size){
 int main(){
     int arr[]={1,2,3,4,5,6,7,8,9};
     int d=3;
+    cout<<nn<<endl;
     int size=sizeof(arr)/sizeof(arr[0]);
     leftrotationByReverse(arr,d,size);
     printArray(arr,size);
