@@ -18,6 +18,7 @@ int main(){
     int b=4;
     int c=(a>>y);
     cout<<z; 
+    
     //bitwise not operator
     cout<<("bitwise not operator ")<<endl;
     int m=1;
