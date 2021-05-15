@@ -14,8 +14,8 @@ bool ifpal(string &str){
 //(intuitive)using two pointer approach
 bool palindrome(string str){
     int j=str.length()-1,i=0;
-    while (i<=str.length()/2){
-        if(str[i--]!=str[j--])
+    while (i<j){
+        if(str[i++]!=str[j--])
             return false;
     }
     return true;
