@@ -15,7 +15,7 @@ int search_element(int arr[],int ele){
             break;
         }
     }return false;
-}
+} 
 int* remove_duplicatesM1(int arr[],int n){
     int newarr[];
     int k;

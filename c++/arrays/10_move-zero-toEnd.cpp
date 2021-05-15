@@ -42,9 +42,9 @@ void printArray(int arr[],int n){
     }
 }
 int main(){
-    int arr[]={10,5,0,0,8,0,9,0};
+    int arr[]={10,20,0,0,40,20,30};
     int n=sizeof(arr)/sizeof(arr[0]);
-    movezero(arr,n);
+    movezeroToend(arr,n);
     printArray(arr,n);
   return 0;
 }
@@ -57,7 +57,6 @@ int main(){
 //         if(arr[i]!=0){
 //             j=i;
 //             i--;
-            
 //         }
 //         else{
 //             swap(arr[i],arr[j]);
