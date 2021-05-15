@@ -9,7 +9,7 @@ int sroot(int x){
 }
 //bs apprach O(logn) time 
 int bsroot(int x){
-    int low=1,high=x,ans=-1;
+    int low=1,high=x/2,ans=-1;
     while(low<=high){
         int mid=(high+low)/2;
         int msq=mid*mid;
@@ -25,9 +25,25 @@ int bsroot(int x){
     return ans;
 }
 
+//check perfect square number
+bool isperSquare(int x){
+    if(x==1) return true;
+    int l=2;
+    int r=x/2;
+    while (l<r){
+        int mid=(l+r)/2;
+        if(mid*mid==x)
+            return true;
+        else if(mid*mid>x)
+            r=mid-1;
+        else
+            l=mid+1;
+    }
+    return false;
+}
+
 int main(){
     cout<<sroot(49)<<endl;
-    cout<<bsroot(50);
-    
+    cout<<isperSquare(49);
     return 0;
 }
