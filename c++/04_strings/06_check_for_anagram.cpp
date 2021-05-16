@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+const int CHAR=256;
 //naive solution using inbuilt function -- O(nlogn)time
 bool areanagram(string s1,string s2){
     if(s1.length()!=s2.length())
