@@ -14,6 +14,8 @@ void fillLPS(string str, int *lps){
         }
     }
 }
+
+//implementing the LPS array
 void KMP(string pat,string txt){
     int N=txt.length();
     int M=pat.length();
