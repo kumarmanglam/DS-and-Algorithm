@@ -21,7 +21,7 @@ void fillLPS(string str, int *lps){
     }
 }
 //mthod 2 is efficient solution o(N) time
-void fillLPS(string str, int *lps){
+void fillLPSm2(string str, int *lps){
     int n=str.length(),len=0;
     lps[0]=0;
     int i=1;
@@ -37,8 +37,9 @@ void fillLPS(string str, int *lps){
  
 int main() 
 { 
-    string txt = "abacabad";int lps[txt.length()];
-    fillLPS(txt,lps);
+    string txt = "abacabad";
+    int lps[txt.length()];
+    fillLPSm2(txt,lps);
     for(int i=0;i<txt.length();i++){
         cout<<lps[i]<<" ";
     }
