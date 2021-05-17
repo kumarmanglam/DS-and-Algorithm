@@ -24,26 +24,11 @@ int leftmos(string &str){
     return -1;
 }
 
-//efficient solution m4- doing in one traverse only and updating smaller index of repeated element
-int leftm(string &str){
-    int findex[CHAR];
-    fill(findex,findex+CHAR,-1);//filling the array with -1
-    int res=INT_MAX;//it will store smaller index
-    for(int i=0;i<str.length();i++){
-        int fi=-findex[str[i]];
-        if(fi==-1)
-            findex[str[i]];
-        else 
-            res=min(res,fi);
-    }
-    return (res==INT_MAX):-1:res;
-}
-
-//efficient solution m3- doing in only one loop 
+//efficient solution m3- doing in one traverse only and updating smaller index of repeated element
 int leftm(string &str){
     int fIndex[CHAR];
-    fill(fIndex,fIndex+CHAR,-1);
-    int res=INT_MAX;
+    fill(fIndex,fIndex+CHAR,-1);//filling the array with -1
+    int res=INT_MAX;//it will store smaller index
     for(int i=0;i<str.length();i++){
         int fi=fIndex[str[i]];
         if(fi==-1)
@@ -54,10 +39,9 @@ int leftm(string &str){
     return (res==INT_MAX)?-1:res;
 }
 
-//efficient solution m4- d
 
 int main(){
     string st="lqwrpipooia";
-    cout<<leftmos(st);
+    cout<<leftm(st);
     return 0;
 }
