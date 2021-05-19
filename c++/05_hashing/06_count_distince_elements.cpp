@@ -16,6 +16,7 @@ int coutndistinct(int arr[],int n){
     }
     return res;
 }
+//efficient solution 
 int countdis(int arr[],int n){
     unordered_set <int> s;
     for(int i=0;i<n;i++){
@@ -23,7 +24,11 @@ int countdis(int arr[],int n){
     }
     return s.size();
 }
-
+//improved efficient solution 
+int counthem(int arr[],int n){
+    unordered_set<int>s(arr,arr+n);
+    return r.size();
+}
 int main(){
     int arr[]={12,3,4,5,632,12,2,3,4,632};
     int n=sizeof(arr)/sizeof(arr[0]);
