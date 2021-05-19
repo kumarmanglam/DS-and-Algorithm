@@ -24,5 +24,5 @@ class A{
 int main(){
     A obj;
     obj.funcA();
-
+    
 }

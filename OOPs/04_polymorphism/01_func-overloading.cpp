@@ -18,6 +18,5 @@ int main(){
     obj.fun();
     obj.fun(34);
     obj.fun(23.30);
-
-  return 0;
+    return 0;
 }
