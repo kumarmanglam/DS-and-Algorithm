@@ -23,8 +23,10 @@ int longests(int arr[],int n){
 
 int largestZeroSubarray(int arr[], int n)
 {
-    for(int i = 0; i < n; i++)
-    arr[i] = (arr[i] == 0) ? -1 : 1;
+    for(int i = 0; i < n; i++)//in array replace all zeroes with -1s
+        arr[i] = (arr[i] == 0) ? -1 : 1;
+
+
     unordered_map<int, int> ump;
     int sum = 0, maxLen = 0;
     for(int i = 0; i < n; i++)
