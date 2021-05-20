@@ -3,7 +3,8 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "deque": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
