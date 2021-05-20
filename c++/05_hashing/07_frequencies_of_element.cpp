@@ -21,17 +21,21 @@ void printfrequencies(int arr[],int n)
     }
 }
 
-//efficient solution 
+//efficient solution -- auxiliary spaceO(n) time O(n)
 void freq(int arr[], int n){
     //creating hash map 
     unordered_map <int,int> mp;
     for(int i=0;i<n;i++){
         mp[arr[i]]++;
     }
-
-    //printint elements of map
+    //printing key value pairs from map
     for(auto it=mp.begin();it!=mp.end();it++)
         cout<<(it->first)<<" - "<<(it->second)<<endl;
+
+    //printing while mainting order
+    for(auto e:mp)
+        cout<<e.first<<" -=- "<<e.second<<endl;
+
 }
 int main(){
     int arr[]={3,5,5,6,6,2};

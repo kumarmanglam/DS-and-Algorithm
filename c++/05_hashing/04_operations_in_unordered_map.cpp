@@ -1,5 +1,5 @@
 #include <iostream>
-#include <unordered_map>
+#include <unordered_map>//hashing is used behind so we cantpredict the order
 using namespace std;
 
 int main(){
@@ -27,5 +27,9 @@ int main(){
     for(auto it=m.begin();it!=m.end();it++)
         cout<<(it->first)<<" "<<(it->second)<<endl;
     
+    //second way of traversing MAP  
+    for(auto e:h)
+        cout<<e.first<<" "<<e.second<<endl;
+
     return 0;
 }
