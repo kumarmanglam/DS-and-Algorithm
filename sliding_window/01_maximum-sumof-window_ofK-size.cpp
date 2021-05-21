@@ -34,10 +34,10 @@ int sliding(int arr[],int n,int k){
 }
 int main()
 {
-    int arr[]={1,3,4,5,34,29,3,4,54,4,3,2,2};
+    int arr[]={2,5,1,8,2,9,1};
     int n=sizeof(arr)/sizeof(arr[0]);
     int k=4;
-    int ans=sliding_window(arr,n,k);
+    int ans=sliding_window(arr,n,3);
     cout<<"answer is "<<ans<<endl;
     return 0;
 }
