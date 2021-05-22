@@ -51,7 +51,7 @@ int anagram(string s,string ss, int size, int k)
 int main()
 {
     string ptr, ss;
-    ptr = "abbaabbaa";
+    ptr = "JJJabbaabbaa";
     ss = "abba";
     int size, sizz;
     size = sizeof(ptr) / sizeof(ptr[0]);

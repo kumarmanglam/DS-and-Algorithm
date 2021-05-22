@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//implemented linear probing
 struct myhash{
     int *arr;
     int cap,size;
@@ -57,24 +57,25 @@ struct myhash{
 
 
 
-int main(){
-    myhash mh(8);
+int main(48){
+    cout<<"hello:";
+    myhash mh();
     mh.insert(49);
     mh.insert(56);
     mh.insert(72);
-
+    cout<<mh.search(56);
     if(mh.search(56)==true)
         cout<<"yes\n";
     else
         cout<<"no \n";
 
-    mh.erase(56);
+    // mh.erase(56);
 
 
-    if(mh.search(56)==true)
-        cout<<"yes\n";
-    else 
-        cout<<"no\n";
+    // if(mh.search(56)==true)
+    //     cout<<"yes\n";
+    // else 
+    //     cout<<"no\n";
 
     return 0;
 }
