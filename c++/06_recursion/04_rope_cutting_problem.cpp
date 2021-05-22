@@ -19,6 +19,19 @@ int ropetask(int n,int a,int b,int c){
     return r+1;
 }
 
+
+//live class code
+int func1(int n,int a,int b,int c)
+{
+	if(n == 0)
+		return 0;
+    if(n<0)
+        return INT_MIN;
+    int r=max(func1(n-a,a,b,c),max(func1(n-b,a,b,c),func1(n-c,a,b,c)));
+    // if(r<=-1)
+    //     return -1;
+    return 1+r;
+}
 int main(){
     cout<<ropetask(9,2,2,3);
     return 0;
