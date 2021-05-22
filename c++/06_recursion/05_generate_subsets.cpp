@@ -3,6 +3,17 @@
 using namespace std;
 
 
+//GFG solution
+void subsets(string &s,string &curr,int i){
+    if(i==s.length()){
+        cout<<curr<<" - ";
+        return;
+    }
+    subsets(s,curr+s[i],i+1);
+    subsets(s,curr,i+1);
+    return;
+}
+
 //aditya verma solution
 void generatesubsets(string ip,string op){
     if(ip.length()==0){
@@ -21,6 +32,6 @@ void generatesubsets(string ip,string op){
 int main(){
     string ip="abc";
     string op="";
-    generatesubsets(ip,op);
+    subsets(ip,op,0);
     return 0;
 }                                    
