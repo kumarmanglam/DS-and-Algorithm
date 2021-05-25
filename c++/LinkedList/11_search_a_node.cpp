@@ -24,7 +24,7 @@ int searchnode(node*head,int x){
 }
 
 //recursive soltuion
-int searchrecursively(node*head,int x,int i){    //got segmentation fault in recursive function
+int searchrecursively(node*head,int x,int i){    
     if(head==NULL){
         return -1;
     }
@@ -35,7 +35,15 @@ int searchrecursively(node*head,int x,int i){    //got segmentation fault in rec
 }
 //other recursive solution which avoids passing extra arguement
 
-
+int searchrecur(node*head,int x){    
+    if(head==NULL){
+        return -1;
+    }
+    if(head->data==x){
+        return 1;
+    }
+    return 1+ searchrecur(head->next,x);
+}
 
 void printlist(node*head){
     node*curr=head;
@@ -51,6 +59,6 @@ int main(){
     head->next=new node(48);
     head->next->next=new node(20);
     head->next->next->next=new node(15);
-    cout<<searchrecursively(head,89,1);
+    cout<<searchrecur(head,90);
     // cout<<searchnode(head,89);
 }
