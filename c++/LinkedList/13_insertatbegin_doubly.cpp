@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 //insert at begin of doubly linkedlist
@@ -15,6 +16,9 @@ struct node{
 
 node* insertatbegin(node*head,int x){
     node*newly=new node(x);
+    if(head==NULL){
+        return newly;
+    }
     newly->next=head;
     head->prev=newly;
     return newly;
@@ -30,7 +34,7 @@ void printlist(node*head){
 }
 
 int main(){
-    node* head=new node(89);
+    node* head=NULL;
     head=insertatbegin(head,8);
     head=insertatbegin(head,88);
     printlist(head);
