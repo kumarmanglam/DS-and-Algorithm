@@ -9,7 +9,7 @@ struct node{
         next=NULL;
     }
 };
-
+//iterative solution
 int searchnode(node*head,int x){
     node*curr=head;
     int index=1;
@@ -21,6 +21,17 @@ int searchnode(node*head,int x){
         curr=curr->next;
     }
     return -1;
+}
+
+//recursive soltuion
+int searchrecursively(node*head,int x,int i){    //got segmentation fault in recursive function
+    if(head==NULL){
+        return -1;
+    }
+    if(head->data==x){
+        return i;
+    }
+    return searchrecursively(head,x,i+1);
 }
 
 void printlist(node*head){
@@ -35,5 +46,6 @@ void printlist(node*head){
 int main(){
     node*head=new node(89);
     head->next=new node(48);
-    searchnode(head,48);
+    cout<<searchrecursively(head,48,1);
+    // cout<<searchnode(head,89);
 }
