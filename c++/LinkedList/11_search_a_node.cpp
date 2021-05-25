@@ -33,6 +33,9 @@ int searchrecursively(node*head,int x,int i){    //got segmentation fault in rec
     }
     return searchrecursively(head->next,x,i+1);
 }
+//other recursive solution which avoids passing extra arguement
+
+
 
 void printlist(node*head){
     node*curr=head;
@@ -46,6 +49,8 @@ void printlist(node*head){
 int main(){
     node*head=new node(89);
     head->next=new node(48);
-    cout<<searchrecursively(head,48,1);
+    head->next->next=new node(20);
+    head->next->next->next=new node(15);
+    cout<<searchrecursively(head,89,1);
     // cout<<searchnode(head,89);
 }
