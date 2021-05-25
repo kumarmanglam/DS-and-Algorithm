@@ -31,7 +31,7 @@ int searchrecursively(node*head,int x,int i){    //got segmentation fault in rec
     if(head->data==x){
         return i;
     }
-    return searchrecursively(head,x,i+1);
+    return searchrecursively(head->next,x,i+1);
 }
 
 void printlist(node*head){
