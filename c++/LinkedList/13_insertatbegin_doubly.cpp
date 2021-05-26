@@ -24,6 +24,15 @@ node* insertatbegin(node*head,int x){
     return newly;
 }
 
+//The above code can also be written as
+node* insertatbegin(node*head,int x){
+    node*newly=new node(x);
+    newly->next=head;
+    if(head!=NULL)
+        head->prev=newly;
+    return newly;
+}
+
 void printlist(node*head){
     node*curr=head;
     while(curr!=NULL){
