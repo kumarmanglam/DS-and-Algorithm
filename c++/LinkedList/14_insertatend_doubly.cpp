@@ -24,12 +24,10 @@ node* insertatbegin(node* head,int x){
 node* insertatend(node* head,int x){
     node* newly=new node(x);
     node* temp=head;
-    if(head==NULL){
+    if(head==NULL)
         return newly;
-    }
-    while(temp->next!=NULL){
+    while(temp->next!=NULL)
         temp=temp->next;
-    }
     temp->next=newly;
     newly->prev=temp;
     return head;
