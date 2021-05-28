@@ -7,7 +7,7 @@ vector <int> maximumofeach(vector<int>&arr,int k)
 {
     //calculation
     list<int>l;
-    vector <int>v;
+    vector <int>v;     
     int i=0,j=0;
     int n=arr.size();
 
