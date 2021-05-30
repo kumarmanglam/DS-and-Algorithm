@@ -12,40 +12,37 @@ struct node{
     }
 };
 
-node* insertatend(node* head,int x){
-    node* newly=new node(x);
-    node* temp=head;
-    if(head==NULL)
-        return newly;
-    while(temp->next!=NULL)
-        temp=temp->next;
-    temp->next=newly;
-    newly->prev=temp;
-    return head;
+node* insertatbegin(node* head,int x){
+    node* temp=new node(x);
+    temp->next=head;
+    if(head==NULL){
+        return temp;
+    }
+    head->prev=temp;
+    return temp;
 }
 
-void printlist(node * head){
-    node*temp=head;
+node* deletefirstnode(node* head){
+    if(head==NULL or head->next==NULL)
+        return NULL;
+    node* secondnode=head->next;
+    delete(head);
+    return secondnode;
+}
+
+void printlist(node* head){
+    node* temp=head;
     while(temp!=NULL){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
 }
 
-node* deletelast(node* head){
-    node*temp=head;
-    while(temp->next->next!=NULL){
-        temp=temp->next;
-    }
-    delete(temp->next->next);
-    temp->next=NULL;
-    return head;
-}
-
 int main(){
-    node*head=new node(78);
-    head=insertatend(head,90);
-    head=insertatend(head,56);
-    head=deletelast(head);
+    node* head=new node(89);
+    head=insertatbegin(head,890);
+    head=insertatbegin(head,8900);
+    head=insertatbegin(head,89000);
+    head=deletefirstnode(head);
     printlist(head);
 }
