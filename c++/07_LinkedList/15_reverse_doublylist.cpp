@@ -1,97 +1,57 @@
-
-// C++ program to reverse a doubly linked list
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-struct LinkedList {
-    struct Node {
-        int data;
-        Node *next, *prev;
-        Node(int d)
-        {
-            data = d;
-            next = prev = NULL;
-        }
-    };
-    Node* head = NULL;
- 
-    /* Function to reverse a Doubly Linked List using Stacks
-     */
-    void reverse()
-    {
-        stack<int> st;
-        Node* temp = head;
-        while (temp != NULL) {
-            st.push(temp->data);
-            temp = temp->next;
-        }
- 
-        // added all the elements sequemce wise in the
-        // st
-        temp = head;
-        while (temp != NULL) {
-            temp->data = st.top();
-            st.pop();
-            temp = temp->next;
-        }
- 
-        // popped all the elements and the added in the
-        // linked list,
-        // which are in the reversed order->
-    }
- 
-    /* UTILITY FUNCTIONS */
-    /* Function to insert a node at the beginning of the
-     * Doubly Linked List */
-    void Push(int new_data)
-    {
- 
-        /* allocate node */
-        Node* new_node = new Node(new_data);
- 
-        /* since we are adding at the beginning,
-         prev is always NULL */
-        new_node->prev = NULL;
- 
-        /* link the old list off the new node */
-        new_node->next = head;
- 
-        /* change prev of head node to new node */
-        if (head != NULL) {
-            head->prev = new_node;
-        }
- 
-        /* move the head to point to the new node */
-        head = new_node;
-    }
- 
-    /* Function to print nodes in a given doubly linked list
-     This function is same as printList() of singly linked
-     list */
-    void printList(Node* node)
-    {
-        while (node) {
-            cout << node->data << " ";
-            node = node->next;
-        }
+
+struct node{
+    int data;
+    node* prev;
+    node* next;
+    node(int x){
+        data=x;
+        prev=NULL;
+        next=NULL;
     }
 };
- 
-// Driver Code
-int main()
-{
-    LinkedList list;
- 
-    /* Let us create a sorted linked list to test the
-     functions Created linked list will be 10->8->4->2
-   */
-    list.Push(2);
-    list.Push(4);
-    list.Push(8);
-    list.Push(10);
-    cout << "Original linked list " << endl;
-    list.printList(list.head);
-    list.reverse();
-    cout << endl;
-    cout << "The reversed Linked List is " << endl;
-    list.printList(list.head);
+
+node* insertatbegin(node*head,int x){
+    node* temp=new node(x);
+    temp->next=head;
+    if(head==NULL)
+        return temp;
+    head->prev=head;
+    return temp;
+}
+
+node* reversedoubly(node* head){
+    node *prevnode,*curr;
+    prevnode=NULL;
+    if(head==NULL||head->next==NULL)
+        return head;
+    curr=head;
+    while(curr!=NULL){
+        prevnode=curr->prev;
+        curr->prev=curr->next;
+        curr->next=prevnode;
+        curr=curr->prev;
+    }
+    return prevnode->prev;
+    
+}
+
+void printlist(node* head){
+    node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data;
+        temp=temp->next;
+    }
+}
+
+int main(){
+    node* head=new node(1);
+    head=insertatbegin(head,4);
+    head=insertatbegin(head,8);
+    head=insertatbegin(head,10);
+    printlist(head);
+    cout<<" before reverse";
+    head=reversedoubly(head);
+    printlist(head);
 }
