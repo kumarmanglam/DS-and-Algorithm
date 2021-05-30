@@ -1,45 +1,45 @@
-#include <iostream>
-using namespace std;
+#include <bits/stdc++.h> 
+using namespace std; 
 
-struct node{
+struct Node{
     int data;
-    node*next;
-    node(int x){
-        data=x;
+    Node* next;
+    Node(int d){
+        data=d;
         next=NULL;
     }
 };
 
-node* insertatbegin(node* head,int x){
-    node* newly=new node(x);
-    if(head==NULL){
-        newly->next=newly;
-    }
+void printlist(Node *head){
+    if(head==NULL)return;
+    Node *p=head;
+    do{
+        cout<<p->data<<" ";
+        p=p->next;
+    }while(p!=head);
+}
+
+Node *insertBegin(Node * head,int x){
+    Node *temp=new Node(x);
+    if(head==NULL)
+        temp->next=temp;
     else{
-        node*curr=head;
+        Node *curr=head;
         while(curr->next!=head)
             curr=curr->next;
-        curr->next=newly;
-        newly->next=head;
-        }
-    return newly;
+        curr->next=temp;
+        temp->next=head;
+    }
+    return temp;
 }
 
-void printlist(node* head){
-    if(head==NULL)
-        return ;
-    node* curr=head;
-    do{
-        cout<<curr->data<<" ";
-        curr=curr->next;
-    }while(curr!=NULL);
-}
-
-
-int main(){
-    node* head=new node(38);
-    head= insertatbegin(head,48);
-    head= insertatbegin(head,58);
-    head= insertatbegin(head,68);
-    printlist(head);
-}
+int main() 
+{ 
+	Node *head=new Node(10);
+	head->next=new Node(20);
+	head->next->next=new Node(30);
+	head->next->next->next=head;
+	head=insertBegin(head,15);
+	printlist(head);
+	return 0;
+} 
