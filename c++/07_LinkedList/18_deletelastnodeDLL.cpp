@@ -32,13 +32,19 @@ void printlist(node * head){
     }
 }
 
+//gfg 
 node* deletelast(node* head){
-    node*temp=head;
-    while(temp->next->next!=NULL){
-        temp=temp->next;
+    if(head==NULL)
+        return NULL;
+    if(head->next==NULL){
+        delete (head);
+        return head;
     }
-    delete(temp->next->next);
-    temp->next=NULL;
+    node*temp=head;
+    while(temp->next!=NULL)
+        temp=temp->next;
+    temp->prev->next=NULL;
+    delete(temp);
     return head;
 }
 
