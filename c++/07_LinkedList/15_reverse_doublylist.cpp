@@ -1,96 +1,54 @@
+#include <iostream>
 using namespace std;
- 
-/* a node of the doubly linked list */
-class Node
-{
-    public:
+
+struct node{
     int data;
-    Node *next;
-    Node *prev;
+    node* prev;
+    node* next;
+    node(int x){
+        data=x;
+        prev=NULL;
+        next=NULL;
+    }
 };
- 
-/* Function to reverse a Doubly Linked List */
-void reverse(Node **head_ref)
-{
-    Node *temp = NULL;
-    Node *current = *head_ref;
-     
-    /* swap next and prev for all nodes of
-    doubly linked list */
-    while (current != NULL)
-    {
-        temp = current->prev;
-        current->prev = current->next;
-        current->next = temp;            
-        current = current->prev;
+
+node* insertatbegin(node*head,int x){
+    node* temp=new node(x);
+    temp->next=head;
+    if(head==NULL)
+        return temp;
+    head->prev=head;
+    return temp;
+}
+
+node* reversedoubly(node* head){
+    if(head==NULL||head->next==NULL) return head;
+    node *prevnode=NULL,*curr=head;
+    while(curr!=NULL){
+        prevnode=curr->prev;
+        curr->prev=curr->next;
+        curr->next=prevnode;
+        curr=curr->prev;
     }
-     
-    /* Before changing the head, check for the cases like empty
-        list and list with only one node */
-    if(temp != NULL )
-        *head_ref = temp->prev;
+    return prevnode->prev;
 }
- 
- 
- 
-/* UTILITY FUNCTIONS */
-/* Function to insert a node at the
-beginging of the Doubly Linked List */
-void push(Node** head_ref, int new_data)
-{
-    /* allocate node */
-    Node* new_node = new Node();
- 
-    /* put in the data */
-    new_node->data = new_data;
-     
-    /* since we are adding at the beginning,
-    prev is always NULL */
-    new_node->prev = NULL;
- 
-    /* link the old list off the new node */
-    new_node->next = (*head_ref);    
- 
-    /* change prev of head node to new node */
-    if((*head_ref) != NULL)
-    (*head_ref)->prev = new_node ;
- 
-    /* move the head to point to the new node */
-    (*head_ref) = new_node;
-}
- 
-/* Function to print nodes in a given doubly linked list
-This function is same as printList() of singly linked list */
-void printList(Node *node)
-{
-    while(node != NULL)
-    {
-        cout << node->data << " ";
-        node = node->next;
+
+void printlist(node* head){
+    node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
     }
 }
- 
-/* Driver code */
-int main()
-{
-    /* Start with the empty list */
-    Node* head = NULL;
-     
-    /* Let us create a sorted linked list to test the functions
-    Created linked list will be 10->8->4->2 */
-    push(&head, 2);
-    push(&head, 4);
-    push(&head, 8);
-    push(&head, 10);
-     
-    cout << "Original Linked list" << endl;
-    printList(head);
-     
-    /* Reverse doubly linked list */
-    reverse(&head);
-     
-    cout << "\nReversed Linked list" << endl;
-    printList(head);        
-     
-    return 0;
+
+int main(){
+    node* temp;
+    node* head=new node(1);
+    head=insertatbegin(head,4);
+    head=insertatbegin(head,8);
+    head=insertatbegin(head,9);
+    // printlist(head);
+    // cout<<"before reverse";
+    temp=reversedoubly(head);       
+    printlist(temp);
 }
