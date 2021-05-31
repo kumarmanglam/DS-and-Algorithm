@@ -19,6 +19,7 @@ void printlist(Node *head){
     }while(p!=head);
 }
 
+//copied from gfg
 Node *insertBegin(Node * head,int x){
     Node *temp=new Node(x);
     if(head==NULL){
@@ -35,6 +36,17 @@ Node *insertBegin(Node * head,int x){
     }
 }
 
+// my way
+node* insertatbegin(node* head,int x){
+    if(head==NULL)
+        return head;
+    node* newly=new node(head->data);
+    node*second=head->next;
+    head->next=newly;
+    newly->next=second;
+    head->data=x;
+    return head;
+}
 int main() 
 { 
 	Node *head=new Node(10);
