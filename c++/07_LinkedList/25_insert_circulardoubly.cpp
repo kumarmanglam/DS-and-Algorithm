@@ -26,6 +26,21 @@ node* insertatbegin(node* head,int x){
     return newly;
 }
 
+node* insertatend(node* head,int x){
+    node*newly=new node(x);
+    if(head==NULL){
+        newly->next=newly;
+        newly->prev=newly;
+        return newly;
+    }
+    node* end=head->prev;
+    end->next=newly;
+    newly->prev=end;
+    newly->next=head;
+    head->prev=newly;
+    return head;
+}
+
 void printlist(node*head){
     if(head==NULL)
         return ;
@@ -37,12 +52,11 @@ void printlist(node*head){
     return ;
 }
 
-
 int main(){
     node* head=new node(89);
     head->next=new node(45);
     head->prev=head->next;
     head->next->prev=head;
-    head=insertatbegin(head,55);
+    head=insertatend(head,55);
     printlist(head);
 }
