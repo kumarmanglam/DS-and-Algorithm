@@ -25,7 +25,7 @@ node* insertatbegin(node*head,int x){
 }
 
 //The above code can also be written as
-node* insertatbegin(node*head,int x){
+node* insertatbeginl(node*head,int x){
     node*newly=new node(x);
     newly->next=head;
     if(head!=NULL)
