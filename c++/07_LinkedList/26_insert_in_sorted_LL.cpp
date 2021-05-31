@@ -12,8 +12,7 @@ struct node{
 
 node* insertinsorted(node* head,int x){
     node* newly=new node(x);
-    if(head==NULL)
-        return newly;
+    if(head==NULL) return newly;
     node*temp=head;
     if((head->data)>x){
             newly->next=head;

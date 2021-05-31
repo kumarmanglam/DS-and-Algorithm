@@ -24,19 +24,21 @@ node* insertatend(node *head,int x){
 }
 
 int middleofll(node* head){
-    if(head==NULL)
-        return 0;
+    if(head==NULL)  return 0;
     node*temp=head;
     int length=0;
     while(temp!=NULL){
         length++;
         temp=temp->next;
     }
-    int  mid;
-    mid=length/2;
+    /*** shorter way writer above code
+    node* curr;
+    for(curr=head;curr!=NULL;curr=curr->next)
+        length++
+    */
     int i=0;
     temp=head;
-    while(i<mid){
+    while(i<length/2){
         temp=temp->next;
         i++;
     }
