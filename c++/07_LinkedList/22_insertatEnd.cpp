@@ -35,7 +35,7 @@ node* insertatendnaive(node* head,int x){
     }
     do{
         temp=temp->next;
-    }while(temp!=head);
+    }while(temp->next!=head);
     temp->next=newly;
     newly->next=head;
     return head;
@@ -58,7 +58,7 @@ int main(){
     head->next=new node(9);
     head->next->next=new node(11);
     head->next->next->next=head;
-    head=insertatend(head,33);
+    head=insertatendnaive(head,33);
     printlist(head);
 }
 
