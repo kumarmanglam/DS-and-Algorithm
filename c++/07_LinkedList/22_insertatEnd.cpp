@@ -26,7 +26,20 @@ node* insertatend(node* head,int x){
 
 
 //naive solution 
-
+node* insertatendnaive(node* head,int x){
+    node* temp=head;
+    node* newly=new node(x);
+    if(head==NULL){
+        newly->next=newly;
+        return newly;
+    }
+    do{
+        temp=temp->next;
+    }while(temp!=head);
+    temp->next=newly;
+    newly->next=head;
+    return head;
+}
 
 void printlist(node* head){
     node* temp=head;
