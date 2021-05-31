@@ -33,6 +33,17 @@ node* deletehead(node* head){
     return temp->next;
 }
 
+//efficient solution
+node* deleteheadeff(node* head){
+    if(head==NULL || head->next==NULL)
+        return NULL;
+    head->data=head->next->data;
+    node* temp=head->next;
+    head->next=head->next->next;
+    delete(temp);
+    return head;
+}
+
 void printlist(node* head){
     node*temp=head;
     if(head==NULL){
@@ -49,6 +60,6 @@ int main(){
     head->next=new node(9);
     head->next->next=new node(11);
     head->next->next->next=head;
-    head=deletehead(head);
+    head=deleteheadeff(head);
     printlist(head);
 }
