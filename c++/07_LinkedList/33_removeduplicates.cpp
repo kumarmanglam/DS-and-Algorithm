@@ -13,19 +13,17 @@ struct node {
 };
 
 node* removedu(node* head){
-    node*curr=head->next,*prev=head,*last=NULL;
-    for(curr=head;curr!=NULL;curr=curr->next){
-        if(curr==prev){
-            last=curr;
+    node* curr=head;
+    while(curr!=NULL && curr->next!=NULL){
+        if(curr->data==curr->next->data){
+            curr->next=curr->next->next;
         }
         else{
-            prev->next=last;
-            prev=last;
+            curr=curr->next;
         }
     }
     return head;
 }
-
 node* insertatbegin(node*head,int x){
     node* temp=new node(x);
     temp->next=head;
@@ -43,10 +41,10 @@ void printlist(node* head){
 
 int main(){
     node*head=new node(4);
-    head->next=new node(8);
-    head=insertatbegin(head,56);
-    head=insertatbegin(head,45);
-    head=insertatbegin(head,115);
+    head->next=new node(4);
+    head=insertatbegin(head,4);
+    head=insertatbegin(head,15);
+    head=insertatbegin(head,15);
     printlist(head);
     cout<<"\n";
     head=removedu(head);
