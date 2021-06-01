@@ -17,14 +17,12 @@ node* insertatbegin(node* head,int x){
 }
 
 node* reverselist(node*first){
-    node*head=first;
-    node*pre=NULL;
-    node*next=NULL;
+    node*head=first,*pre=NULL,*next=NULL;
     while(head!=NULL)
         next=head->link;            //storing the link of current node in next pointer-------making auxilliary statement to use it later
         head->link=pre;             //making previous node as link of current node
-        pre=head;                   //taking pre pointer forward
-        head=next;                  //taking head pointer forward
+        pre=head;                   //taking pre pointer one node forward
+        head=next;                  //taking head pointer one node forward
     }
     return pre;
 }

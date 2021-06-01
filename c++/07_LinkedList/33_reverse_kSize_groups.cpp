@@ -11,30 +11,20 @@ struct node {
     }
 };
 
-node* reversell(node* head){
-    if(head==NULL || head->next==NULL)
-        return head;
-    node* curr=head,*prevnode=NULL,*nextnode=NULL;
-    while(curr!=NULL){
-        nextnode=curr->next;
-        curr->next=prevnode;
-        prevnode=curr;
-        curr=nextnode;
+node* reverseksized(node* head){
+    int i=0;
+    node* currnode=head,*prenode=NULL,*nextnode=NULL;
+    while(i<k && currnode!=NULL){
+        nextnode=currnode->next;            //storing next node of currnode node
+        currnode->next=prevnode;            //making currnode node next to previous node
+        prenode=currnode;                   //taking prenode one node forward
+        currnode=nextnode;                  //taking currnode node forward
     }
-    return prevnode;
-}
-
-//naive approach
-node* reverseusingspace(node* head){
-    vector <int> arr;
-
-    for(node* curr=head;curr!=NULL;curr=curr->next)
-        arr.push_back(curr->data);
-    for(node* curr=head;curr!=NULL;curr=curr->next){
-        curr->data=arr.back();
-        arr.pop_back();
+    if(nextnode!=NULL){
+        node* resthead=reverseksized(nextnode,k);
+        head->next=resthead;
     }
-    return head;
+    return prevnode;                        //prevnode is new head
 }
 
 node* insertatbegin(node*head,int x){
@@ -60,6 +50,6 @@ int main(){
     head=insertatbegin(head,115);
     printlist(head);
     cout<<"\n";
-    head=reverseusingspace(head);
+    head=reversell(head,NULL);
     printlist(head);
 }
