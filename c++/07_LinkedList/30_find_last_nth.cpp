@@ -13,16 +13,13 @@ struct node {
 
 void findnthnode(node* head,int n){
     if(head==NULL) return ;
-    node* first=head,*second=head;
+    node *first=head,*second=head;
     while(first!=NULL){
-        int i=0;
-        while(i<n){
+        for(int i=0;i<n;i++){
             first=first->next;
-            i++;
         }
         first=first->next;
         second=second->next;
-        
     }
     cout<<second->data;
 }
@@ -51,6 +48,6 @@ int main(){
     head=insertatbegin(head,115);
     
     printlist(head);
-    cout<<"\n";
+    cout<<"\n  ";
     findnthnode(head,2);
 }

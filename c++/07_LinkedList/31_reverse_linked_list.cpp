@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct node {
@@ -24,12 +25,24 @@ node* reversell(node* head){
     return prevnode;
 }
 
+//naive approach
+node* reverseusingspace(node* head){
+    vector <int> arr;
+
+    for(node* curr=head;curr!=NULL;curr=curr->next)
+        arr.push_back(curr->data);
+    for(node* curr=head;curr!=NULL;curr=curr->next){
+        curr->data=arr.back();
+        arr.pop_back();
+    }
+    return head;
+}
+
 node* insertatbegin(node*head,int x){
     node* temp=new node(x);
     temp->next=head;
     return temp;
 }
-
 
 void printlist(node* head){
     node*temp=head;
@@ -48,8 +61,6 @@ int main(){
     head=insertatbegin(head,115);
     printlist(head);
     cout<<"\n";
-    head=reversell(head);
+    head=reverseusingspace(head);
     printlist(head);
-    
-    
 }
