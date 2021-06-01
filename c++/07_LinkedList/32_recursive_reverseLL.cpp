@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -16,7 +14,6 @@ struct node {
 node* reversell(node* temp,node* prev){
     node*buff=temp;
     if(temp==NULL){
-        prev->next=NULL;
         return prev;
     }
     node*nxt=temp->next;
