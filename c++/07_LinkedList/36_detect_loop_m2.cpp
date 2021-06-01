@@ -4,20 +4,21 @@ using namespace std;
 struct node{
     int data;
     node* next;
+    bool visited;
     node(int x){
         data=x;
         next=NULL;
+        visited=false;
     }
 };
 
 bool checkloop(node* head){
-    node* curr=head,*temp;
-    while(curr!=NULL || curr->next!=NULL){
-        if(curr->next->next==temp)
+    node* curr=head;
+    while(curr!=NULL){
+        if(curr->visited==true)
             return true;
-        node* nextnode=curr->next;
-        curr->next=temp;
-        curr=nextnode;
+        curr->visited=true;
+        curr=curr->next;
     }
     return false;
 }
@@ -32,6 +33,7 @@ int main(){
     first->next=second;
     second->next=third;
     third->next=fourth;
-    fourth->next=third;
+    fourth->next=NULL;
+    cout<<"Answer is : ";
     cout<<checkloop(head);
 }
