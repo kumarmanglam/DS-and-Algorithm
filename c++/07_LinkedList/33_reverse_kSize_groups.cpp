@@ -11,19 +11,19 @@ struct node {
     }
 };
 
-node* reverseksized(node* head){
+node* reverseksized(node* head,int k){
     int i=0;
-    node* currnode=head,*prenode=NULL,*nextnode=NULL;
+    node* currnode=head,*prevnode=NULL,*nextnode;
     while(i<k && currnode!=NULL){
         nextnode=currnode->next;            //storing next node of currnode node
         currnode->next=prevnode;            //making currnode node next to previous node
-        prenode=currnode;                   //taking prenode one node forward
+        prevnode=currnode;                   //taking prenode one node forward
         currnode=nextnode;                  //taking currnode node forward
-    }
-    if(nextnode!=NULL){
-        node* resthead=reverseksized(nextnode,k);
-        head->next=resthead;
-    }
+        i++;
+    }                  
+    if(nextnode!=NULL)
+        head->next=reverseksized(nextnode,k);
+    
     return prevnode;                        //prevnode is new head
 }
 
@@ -44,12 +44,12 @@ void printlist(node* head){
 
 int main(){
     node*head=new node(4);
-    head->next=new node(8);
-    head=insertatbegin(head,56);
-    head=insertatbegin(head,45);
-    head=insertatbegin(head,115);
+    head->next=new node(5);
+    head=insertatbegin(head,3);
+    head=insertatbegin(head,2);
+    head=insertatbegin(head,1);
     printlist(head);
     cout<<"\n";
-    head=reversell(head,NULL);
+    head=reverseksized(head,2);
     printlist(head);
 }
