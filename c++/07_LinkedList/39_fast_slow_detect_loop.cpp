@@ -2,6 +2,8 @@
 #include <unordered_set>
 using namespace std;
 
+//done --- floyd detection
+
 struct node{
     int data;
     node* next;
