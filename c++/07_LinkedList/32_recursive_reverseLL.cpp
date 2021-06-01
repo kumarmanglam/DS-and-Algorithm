@@ -12,14 +12,10 @@ struct node {
 };
 
 node* reversell(node* temp,node* prev){
-    node*buff=temp;
-    if(temp==NULL){
-        return prev;
-    }
+    if(temp==NULL) return prev;  
     node*nxt=temp->next;
     temp->next=prev;
-    prev=buff;
-    reversell(nxt,buff);
+    return reversell(nxt,temp);
 }
 
 node* insertatbegin(node*head,int x){
