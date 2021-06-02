@@ -65,5 +65,5 @@ int main(){
     third->next=fourth;
     fourth->next=NULL;
     head=oddeven(head);
-    printlist(head);
+    printlist(head);//
 }
