@@ -2,6 +2,8 @@
 #include <unordered_set>
 using namespace std;
 
+//done --- floyd detection
+
 struct node{
     int data;
     node* next;
@@ -11,15 +13,21 @@ struct node{
     }
 };
 
-bool checkloop(node*head){
+node* removeloop(node*head){
     node*fast=head,*slow=head;
     while(fast!=NULL && fast->next!=NULL){
         slow=slow->next;
         fast=fast->next->next;
-        if(slow==fast)
-            return true;
+        if(slow==fast){
+            slow=head;
+            while(slow->next!=fast->next){
+                slow=slow->next;
+                fast=fast->next;
+            }
+            fast->next=NULL;
+        }
     }
-    return false;
+    return head;
 }
 
 void printlist(node* head){
@@ -28,7 +36,6 @@ void printlist(node* head){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
-    return;
 }
 
 int main(){
@@ -41,6 +48,7 @@ int main(){
     first->next=second;
     second->next=third;
     third->next=fourth;
-    fourth->next=NULL;
-    cout<<checkloop(head);
+    fourth->next=second;
+    head=removeloop(head);
+    printlist(head);
 }
