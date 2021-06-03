@@ -15,9 +15,9 @@ struct node{
 };
 
 node* pairwap(node* head){
-    node* newhead=head->next;
-    head->next=head->next->next;
-    newhead->next=head;
+    node* newhead=head->next;               //naya head choose kiya
+    head->next=head->next->next;            //link ulta kiya
+    newhead->next=head;                     //naye head ko link kiya
     return newhead;
 }
 
