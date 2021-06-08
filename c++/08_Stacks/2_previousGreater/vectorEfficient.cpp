@@ -1,4 +1,5 @@
 #include <iostream>
+#include<vector>
 #include<stack>
 using namespace std;
 
@@ -12,7 +13,12 @@ vector<int> previousgreater(int arr[],int n){
             s.pop();
         }
         index=s.empty()? -1: s.top();
-        v.push_back(arr[index]);
+        if(s.empty()){
+            v.push_back(-1);
+        }
+        else{
+            v.push_back(arr[index]);
+        }
         s.push(i);
     }
     return v;
@@ -24,7 +30,7 @@ int main(){
     vector<int>v;
     v=previousgreater(arr,n);
     for(int i=0;i<v.size();i++){
-        cout<<v[i];
+        cout<<v[i]<< " ";
     }
     return 0;
 }
