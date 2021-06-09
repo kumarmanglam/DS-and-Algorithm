@@ -28,7 +28,7 @@ vector <int> smallright(int arr[],int n){
     vector <int> v;
     stack <int> s;
     v.push_back(n);
-    s.push(n-2);
+    s.push(n-1);
     for(int i=n-2;i>=0;i--){
         while(s.empty()==false && arr[s.top()]>arr[i]){
             s.pop();
@@ -60,22 +60,22 @@ vector <int> smallright(int arr[],int n){
 // }
 
 int main(){
-    int arr[]={6,8,5,4,5,6,6};
+    int arr[]={6,2,5,4,1,5,6};
     int n=sizeof(arr)/sizeof(arr[0]);
     vector <int> nsl,nsr;
     nsl=smaleft(arr,n);
     nsr=smallright(arr,n);
     reverse(nsr.begin(),nsr.end());
     for(int i=0;i<nsl.size();i++){
-        cout<<arr[i]<<" ";
+        cout<<arr[i]<<"  ";
     }
     cout<<"\n";
     for(int i=0;i<nsl.size();i++){
-        cout<<nsl[i]<<" ";
+        cout<<nsl[i]<<"  ";
     }
     cout<<"\n";
     for(int i=0;i<nsl.size();i++){
-        cout<<nsr[i]<<" ";
+        cout<<nsr[i]<<"  ";
     }
     cout<<"\n";
     return 0;
