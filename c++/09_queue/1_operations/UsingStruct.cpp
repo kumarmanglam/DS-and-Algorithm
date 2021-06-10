@@ -11,13 +11,13 @@ struct queue{
         arr=new int[cap];
     }
     bool isfull(){
-        return (size==full);
+        return (size==cap);
     }
     bool isempty(){
         return (size==0);
     }
     void enque(int x){
-        if(isfull())return;
+        if(isfull()) return;
         arr[size]=x;
         size++;
     }
@@ -26,15 +26,15 @@ struct queue{
         for(int i=0;i<size-1;i++){
             arr[i]=arr[i+1];
         }
-        size++;
+        size--;
     }
-    int getfront() {
+    int getfront() {        //returns index of first value which is always the first value1
         if(isempty()) return -1;
-        return (arr[size]);
+        else return 0;
     }
-    int getrear() {
+    int getrear() {         //returns index of the last value
         if(isepty()) return -1;
-        return (arr[size]);
+        else return size-1;
     }
     int size() {
         return size;
