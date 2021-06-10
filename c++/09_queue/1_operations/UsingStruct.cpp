@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h> 
 using namespace std;
 
 
@@ -33,10 +33,20 @@ struct queue{
         else return 0;
     }
     int getrear() {         //returns index of the last value
-        if(isepty()) return -1;
+        if(isempty()) return -1;
         else return size-1;
     }
-    int size() {
+    int sizeofqueue() {
         return size;
     }
 };
+
+
+int main(){
+    node* fisrt=new queue(12);
+    enqueue(13);
+    enqueue(14);
+    enqueue(15);
+}
+
+
