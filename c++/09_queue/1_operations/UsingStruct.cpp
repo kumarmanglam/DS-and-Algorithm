@@ -1,7 +1,6 @@
 #include <bits/stdc++.h> 
 using namespace std;
 
-
 struct queue{
     int size,cap;
     int *arr;
@@ -16,37 +15,56 @@ struct queue{
     bool isempty(){
         return (size==0);
     }
-    void enque(int x){
-        if(isfull()) return;
+    void enqueue(int x){
+        if(isfull()){
+            cout<<"\n queue is full";
+            return;
+        }
         arr[size]=x;
         size++;
     }
     void deque(){
-        if(isempty()) return ;
+        if(isempty()){
+            cout<<"\n queue is empty";
+            return ;
+        }
         for(int i=0;i<size-1;i++){
             arr[i]=arr[i+1];
         }
         size--;
     }
-    int getfront() {        //returns index of first value which is always the first value1
+    int getfront(){        //returns index of first value which is always the first value1
         if(isempty()) return -1;
         else return 0;
     }
-    int getrear() {         //returns index of the last value
+    int getrear(){         //returns index of the last value
         if(isempty()) return -1;
         else return size-1;
     }
     int sizeofqueue() {
         return size;
     }
+    void display(){
+        int i;
+        if(isempty()){
+            cout<<"queue is full";
+            return;
+        }
+        for(i=0;i<size;i++){
+            cout<<arr[i];
+        }
+        return;
+    }
 };
 
-
 int main(){
-    node* fisrt=new queue(12);
-    enqueue(13);
-    enqueue(14);
-    enqueue(15);
+    queue q(8);
+    
+    q.display();
+    
+    q.enqueue(34);
+    q.enqueue(35);
+    q.enqueue(46);
+     
+    q.display();
 }
-
-
