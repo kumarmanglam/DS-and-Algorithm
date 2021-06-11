@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <iostream>
 using namespace std;
 
 struct queue{
@@ -17,7 +17,7 @@ struct queue{
     }
     void enqueue(int x){
         if(isfull()){
-            cout<<"\n queue is full";
+            cout<<"\n queue is full\n";
             return;
         }
         arr[size]=x;
@@ -47,11 +47,11 @@ struct queue{
     void display(){
         int i;
         if(isempty()){
-            cout<<"queue is full";
+            cout<<"\nqueue is full\n";
             return;
         }
         for(i=0;i<size;i++){
-            cout<<arr[i];
+            cout<<arr[i]<<" ";
         }
         return;
     }
@@ -67,4 +67,5 @@ int main(){
     q.enqueue(46);
      
     q.display();
+    return 0;
 }
