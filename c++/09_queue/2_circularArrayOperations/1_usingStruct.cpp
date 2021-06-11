@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-//some bugs still persists
 
 struct queue{
     int size;
@@ -19,25 +18,6 @@ struct queue{
     bool isempty(){
         return (size==0);
     }
-    void enque(int x){
-        if(isfull()){
-            cout<<" \n queue is full \n";
-            return;
-        }
-        int rear=(front+size-1)%cap;
-        rear=(rear+1)%cap;
-        arr[rear]=x;
-        size++;
-    }
-    void deque(){
-        if(isempty()){
-            cout<<" \n queue is empty \n";
-            return;
-        }
-        arr[front]=-1;
-        front=(front+1)%cap;
-        size--;
-    }
     int getfront(){
         if(isempty()){
             cout<<" \n queue is empty \n ";
@@ -50,20 +30,36 @@ struct queue{
             cout<<" \n queue is empty \n";
             return -1;
         }
-        int rear=(front+size-1)%cap;
-        return arr[rear];
+        return arr[(front+size-1)%cap];
     }
-    void display(){
-        int i=front;
-        int j=front+size;
-        int order=0;
-        while(i<j){
-            order=i%cap;
-            cout<<arr[i]<<" - ";
-            i++;
+    void enque(int p){
+        if(isfull()){
+            cout<<" \n queue is full \n";
+            return;
         }
-        cout<<"\n";
+        int rear=(front+size-1)%cap;
+        rear=(rear+1)%cap;
+        arr[rear]=p;
+        size++;
     }
+    void deque(){
+        if(isempty()){
+            cout<<" \n queue is empty \n";
+            return;
+        }
+        front=(front+1)%cap;
+        size--;
+    }
+
+    // void display(){
+    //     int i=front;
+    //     int j=front+size;
+    //     while(i<j){
+    //         cout<<arr[i]<<" - ";
+    //         i++;
+    //     }
+    //     cout<<"\n";
+    // }
 };
 
 int main(){
@@ -74,7 +70,12 @@ int main(){
     q.enque(45);
     q.enque(50);
     q.deque();
-    q.enque(90);
+    q.deque();
+    q.deque();
+    q.enque(34);
+    cout<<q.getfront();
+    cout<<" ";
+    cout<<q.getrear();
     
-    q.display();
+    // q.display();
 }
