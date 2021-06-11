@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//some bugs still persists
 
 struct queue{
     int size;
@@ -54,10 +55,14 @@ struct queue{
     }
     void display(){
         int i=front;
-        int j=cap+size;
+        int j=front+size;
+        int order=0;
         while(i<j){
-            cout<<arr[i];
+            order=i%cap;
+            cout<<arr[i]<<" - ";
+            i++;
         }
+        cout<<"\n";
     }
 };
 
@@ -68,7 +73,8 @@ int main(){
     q.enque(34);
     q.enque(45);
     q.enque(50);
-    q.enque(58);
+    q.deque();
+    q.enque(90);
     
     q.display();
 }
