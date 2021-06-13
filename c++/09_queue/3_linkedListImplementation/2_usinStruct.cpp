@@ -11,12 +11,15 @@ struct Node {
 };
 
 struct queue{
-    node *front,*rear;
+    node *front,*rear,int size;
     queue(){
-        front=NULL;rear=NULL;
+        front=NULL;
+        rear=NULL;
+        size=0;
     }
     void enque(int x){
         node* temp=new node(x);
+        size++;
         if(front==NULL){
             front=rear=temp;
             return;
@@ -26,6 +29,7 @@ struct queue{
     }
     void deque(){
         if(front==NULL)return;
+        size--;
         node* temp=front;
         front=fornt->next;
         if(front==NULL){
