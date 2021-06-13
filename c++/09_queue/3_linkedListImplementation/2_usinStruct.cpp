@@ -37,4 +37,12 @@ struct queue{
         }
         delete(temp);                       //memory deallocation
     }
+    int getfront(){
+        if(front!=NULL) return front->data;
+        return -1;
+    }
+    int getrear(){
+        if(rear!=NULL)return rear->data;
+        return -1;
+    }
 };
