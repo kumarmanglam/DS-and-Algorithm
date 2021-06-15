@@ -13,7 +13,6 @@ struct deque{
         arr=new int[cap];
     }
 
-    
     bool isfull(){
         return (size==cap);
     }
@@ -27,7 +26,7 @@ struct deque{
             cout<<" deque is empty \n";
             return -1;
         }
-        return arr[front];
+        return front;
     }
     
     int getback(){
@@ -35,25 +34,7 @@ struct deque{
             cout<<" deque is empty \n";
             return -1;
         }
-        return arr[(front+size-1)/cap];
-    }
-    
-    void pushfront(int x){
-        if(isfull()){
-            cout<<" deeque is full \n";
-            return ;
-        }
-        arr[(front+cap-1)%cap]=x;                       // we take modulo here so that we do not get negative index imp front-cap-1 gives previous index to front
-        return ;
-    }
-    
-    void pushback(int x){
-        if(isfull()){
-            cout<< " deque is full \n";
-            return ;
-        }
-        arr[(front+size-1)/cap];
-        return;
+        return (front+size-1)/cap;
     }
     
     void deletefront(){
@@ -61,16 +42,33 @@ struct deque{
             cout<<" deque is empty";
             return;
         }
-        front=front+1;
+        front=(front+1)%cap;
+        size--;
+    }
+    void insertrear(int x){
+        if(isfull()){
+            cout<< " deque is full \n";
+            return ;
+        }
+        arr[(front+size)%cap]=x;
+        size++;
+    }
+    void insertfront(int x){
+        if(isfull()){
+            cout<<" deeque is full \n";
+            return ;
+        }
+        front=(front+cap-1)%cap;                         // we take modulo here so that we do not get negative index imp front-cap-1 gives previous index to front
+        arr[front]=x;                     
+        size++;
     }
     
-    void deleteback(){
+    void deleterear(){
         if(isempty()){
             cout<<" deque is empty";
             return;
         }
-        size=size-1;
-        return;
+        size--;
     }
     
     void display(){
@@ -84,11 +82,15 @@ struct deque{
 };
 
 int main(){
-    deque q(5);
-    q.pushback(34);
-    q.pushback(23);
-    q.pushfront(30);
-    q.pushfront(48);
+    deque q(4);
+    q.insertfront(34);
+    q.insertfront(23);
+    q.insertfront(30);
+    q.insertrear(48);
+    q.insertrear(33);
+    q.isempty();
+    q.deleterear();
+    
     q.display();
     return 0;
 }
