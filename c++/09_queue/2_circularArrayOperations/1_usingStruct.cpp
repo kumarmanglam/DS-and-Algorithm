@@ -51,15 +51,15 @@ struct queue{
         size--;
     }
 
-    // void display(){
-    //     int i=front;
-    //     int j=front+size;
-    //     while(i<j){
-    //         cout<<arr[i]<<" - ";
-    //         i++;
-    //     }
-    //     cout<<"\n";
-    // }
+    void display(){
+        int i=front;
+        int j=front+size;
+        while(i<j){
+            cout<<arr[(i+cap)%cap]<<" ";
+            i++;
+        }
+        cout<<"\n";
+    }
 };
 
 int main(){
@@ -70,12 +70,12 @@ int main(){
     q.enque(45);
     q.enque(50);
     q.deque();
-    q.deque();
-    q.deque();
+    // q.deque();
+    // q.deque();
     q.enque(34);
-    cout<<q.getfront();
-    cout<<" ";
-    cout<<q.getrear();
+    // cout<<q.getfront();
+    // cout<<" ";
+    // cout<<q.getrear();
     
-    // q.display();
+    q.display();
 }
