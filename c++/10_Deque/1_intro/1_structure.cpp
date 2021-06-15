@@ -43,8 +43,8 @@ void pushfront(int x){
         cout<<" deeque is full \n";
         return ;
     }
-    arr[front-1]=x;
-    return;
+    arr[(front+cap-1)%cap]=x;                       // we take modulo here so that we do not get negative index imp front-cap-1 gives previous index to front
+    return ;
 }
 
 void pushback(int x){
@@ -52,7 +52,7 @@ void pushback(int x){
         cout<< " deque is full \n";
         return ;
     }
-    arr[(front+size)/cap]=x;
+    arr[(front+size-1)/cap];
     return;
 }
 
