@@ -44,7 +44,7 @@ void pushfront(int x){
         return ;
     }
     arr[front-1]=x;
-    return ;
+    return;
 }
 
 void pushback(int x){
@@ -52,7 +52,7 @@ void pushback(int x){
         cout<< " deque is full \n";
         return ;
     }
-    arr[(front+size-1)/cap];
+    arr[(front+size)/cap]=x;
     return;
 }
 
