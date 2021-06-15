@@ -10,6 +10,7 @@ struct deque{
         cap=x;
         size=0;
         front=0;
+        arr=new int[cap];
     }
 };
 
