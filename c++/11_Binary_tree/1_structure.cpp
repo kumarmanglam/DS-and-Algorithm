@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//for a empty binary tree we store root data as NULL
 struct node{
     node*left;
     node*right;
