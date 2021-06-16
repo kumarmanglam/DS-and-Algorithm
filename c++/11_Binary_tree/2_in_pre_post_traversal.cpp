@@ -22,25 +22,25 @@ void inorder(node* root){
 void preorder(node* root){
     if(root!=NULL){
         cout<<root->key<<" ";
-        inorder(root->left);
-        inorder(root->right);
+        preorder(root->left);
+        preorder(root->right);
     }
 }
 void postorder(node* root){
     if(root!=NULL){
-        inorder(root->left);
-        inorder(root->right);
+        postorder(root->left);
+        postorder(root->right);
         cout<<root->key<<" ";
     }
 }
 
 int main(){
-    node* root=new node(20);
-    root->left=new node(10);
-    root->right=new node(30);
-    root->right->left=new node(15);
-    root->right->right=new node(45);
-    
+	node *root=new node(10);
+	root->left=new node(20);
+	root->right=new node(30);
+	root->right->left=new node(40);
+	root->right->right=new node(50);
+	
     cout<<"\n";
     inorder(root);
     cout<<"\n";
