@@ -2,7 +2,8 @@
 #include <queue>
 using namespace std;
 //naive solution to find the size of Bt
-
+//recursive time o(n) space o(height)
+//iterative time o(n) space o(width)
 struct node{
     int key;
     node* left;
