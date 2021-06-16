@@ -37,7 +37,7 @@ void printleftview(node* root){
 
 int main(){
     node* root=new node(9);
-    root->left=new node(12);
+    root->left=new node(13);
     root->right=new node(14);
     root->left->left=new node(13);
     root->right->left=new node(23);
