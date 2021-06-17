@@ -11,19 +11,16 @@ struct node{
     }
 };
 //-----
-bool childrensumprop(node* root){
+bool childsum(node *root){
     if(root==NULL)
         return true;
     if(root->left==NULL && root->right==NULL)
         return true;
     int sum=0;
+    if(root->left!=NULL)sum+=root->left->key;
+    if(root->right!=NULL)sum+=root->right->key;
     
-    if(root->left!=NULL)
-        sum+=root->left->key;
-    if(root->right!=NULL)
-        sum+=root->right->key;
-    
-    return (root->key==sum && childrensumprop(root->left)) && childrensumprop(root->right);
+    return (root->key==sum && childsum(root->left) && childsum(root->right));
 }
 
 
@@ -35,12 +32,12 @@ bool childrensumprop(node* root){
 //      15  8   12
 
 int main(){
-    node* root=new node(9);
-    root->left=new node(12);
-    root->right=new node(14);
-    root->left->left=new node(13);
-    root->right->left=new node(23);
-    root->right->right=new node(17);
-    cout<<childrensumprop(root);
+    node* root=new node(35);
+    root->left=new node(15);
+    root->right=new node(20);
+    root->left->left=new node(15);
+    root->right->left=new node(8);
+    root->right->right=new node(12);
+    cout<<childsum(root);
     return 0;
 }
