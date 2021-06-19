@@ -11,7 +11,7 @@ struct node{
     }
 };
 //get successor (next node in inorder traversal)
-node *getsuccessor(node *curr){
+node *getsuccessor(node *curr){                 //in general this is the code edge case errors are still present to get a successor
     curr=curr->right;
     while(curr!=NULL && curr->left!=NULL)
         curr=curr->left;
