@@ -25,7 +25,7 @@ int floorof(node *root,int x){
             curr=curr->left;
         }
         else {
-            return maxtillnow=curr->key;
+            return curr->key;
         }
     }
     return maxtillnow;
