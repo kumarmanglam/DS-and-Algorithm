@@ -1,42 +1,42 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-struct Node  
-{ 
-  int key; 
-  struct Node *left; 
-  struct Node *right; 
-  Node(int k){
-      key=k;
-      left=right=NULL;
-  }
-};
-
-bool search(Node *root, int x){
-    if(root==NULL)
-        return false;
-    if(root->key==x)
-        return true;
-    else if(root->key>x){
-        return search(root->left,x);
-    }else{
-        return search(root->right,x);
+struct node{
+    int key;
+    node* left;
+    node* right;
+    node(int k){
+        key=k;
+        left=right=NULL;
     }
-} 
+};
+// searching in BST
+bool search(node* root,int k){
+    if(root==NULL){
+        return false;
+    }
+    if(root->key==k){
+        return true;
+    }
+    if(root->key>k){
+        search(root->right,k);
+    }
+    if(root->key<k){
+        search(root->left,k);
+    }
+}
+//          35
+//         / \
+//        15 20
+//       /   /  \
+//      15  8   12
 
-int main() {
-	
-	Node *root=new Node(15);
-	root->left=new Node(5);
-	root->left->left=new Node(3);
-	root->right=new Node(20);
-	root->right->left=new Node(18);
-	root->right->left->left=new Node(16);
-	root->right->right=new Node(80);
-	int x=16;
-	
-	if(search(root,x))
-	    cout<<"Found";
-	else
-	    cout<<"Not Found";
+int main(){
+    node* root=new node(9);
+    root->left=new node(12);
+    root->right=new node(14);
+    root->left->left=new node(13);
+    root->right->left=new node(23);
+    cout<<search(root,13);
+    return 0;
 }
