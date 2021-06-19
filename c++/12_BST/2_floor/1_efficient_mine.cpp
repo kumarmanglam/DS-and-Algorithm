@@ -11,6 +11,7 @@ struct node{
         left=right=NULL;
     }
 };
+//logic of searching is used
 //floor 
 //iterative solution            //naive 
 int floorof(node *root,int x){
