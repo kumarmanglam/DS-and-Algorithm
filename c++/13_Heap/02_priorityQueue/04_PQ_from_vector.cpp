@@ -6,7 +6,7 @@ using namespace std;
 int main(){
     while(pq.empty()==false){
         vector <int> v={14.23,2};
-        priority_queue<int>pq(vec.begin(),vec.end()):
+        priority_queue<int>pq(vec.begin(),vec.end()):       //-->this takes O(N) time
         
         while(!pq.empty()){
             cout<<pq.top()<<" ";
