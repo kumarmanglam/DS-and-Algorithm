@@ -2,7 +2,7 @@
 #include <queue>
 using namespace std;
 
-//logic is touse min heap of constant size
+//logic is touse max heap of constant size
 
 //to find largest k+1 lragest elements
 //1 build minheap of k elements
