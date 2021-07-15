@@ -6,6 +6,7 @@ void addadj(vector<int> adj[],int a,int b){
 }
 void printgraph(vector <int> v[],int n){
     for(int i=0;i<n;i++){
+        
         for(int x: v[i] ){
             cout<<x<<" ";
         }
