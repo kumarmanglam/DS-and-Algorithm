@@ -1,6 +1,12 @@
 #include<bits/stdc++.h> 
 using namespace std;
 
+void insertinmatrix(int adj[],int v,int u){
+    adj[u][v]=1;
+    adj[u][v]=1;
+}
+
+
 int main(){
     int n,m;
     cin>>n>>m;
